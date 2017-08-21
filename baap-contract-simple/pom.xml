@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>biz.pdxtech.daap</groupId>
+		<artifactId>baap-contract</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<groupId>life.pdx.daap</groupId>
+	<artifactId>baap-contract-simple</artifactId>
+	<name>baap-contract-simple</name>
+	<packaging>war</packaging>
+	<url>http://www.pdx.life</url>
+
+	<properties>
+		<jersey.version>2.22.2</jersey.version>
+		<jackson.version>2.7.4</jackson.version>
+		<jaxrs.version>2.0</jaxrs.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<pdxdaap.version>1.2.5</pdxdaap.version>
+		<logback.verson>1.1.5</logback.verson>
+	</properties>
+
+	<dependencies>
+		<!-- daap api -->
+		<dependency>
+			<groupId>biz.pdxtech.daap</groupId>
+			<artifactId>daap-api</artifactId>
+			<version>${pdxdaap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>biz.pdxtech.daap</groupId>
+			<artifactId>daap-ethereumj-core</artifactId>
+			<version>${pdxdaap.version}</version>
+		</dependency>
+		<!-- jersey -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+		</dependency>
+		<!-- spring -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.verson}</version>
+		</dependency>
+		<dependency>
+			<groupId>biz.pdxtech.daap</groupId>
+			<artifactId>daap-bcdriver</artifactId>
+			<version>${pdxdaap.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>biz.pdxtech.daap</groupId>
+			<artifactId>daap-ethbcdriver</artifactId>
+			<version>${pdxdaap.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>baap-contract-simple</finalName>
+	</build>
+</project>
