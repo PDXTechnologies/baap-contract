@@ -14,8 +14,10 @@
 		<description>Spring JPA Demo with LocalContainerEntityManagerFactoryBean</description>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
-			<property name="hibernate.dialect" value="life.pdx.dapp.sample.db.conf.MySQL5DialectUTF8" />
+			<property name="hibernate.dialect" value="life.pdx.bapp.sample.db.conf.MySQL5DialectUTF8" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -13,59 +14,12 @@
 	<url>http://www.pdx.life</url>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jersey.version>2.22.2</jersey.version>
-		<spring.version>4.3.8.RELEASE</spring.version>
-		<pdxdaap.version>1.2.5</pdxdaap.version>
-		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 		<jersey.sun.version>1.19</jersey.sun.version>
-		<logback.verson>1.1.5</logback.verson>
+		<spring.version>4.3.8.RELEASE</spring.version>
 		<druid.version>1.0.16</druid.version>
 	</properties>
 
-
 	<dependencies>
-		<dependency>
-			<groupId>biz.pdxtech.daap</groupId>
-			<artifactId>daap-common</artifactId>
-			<version>${pdxdaap.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>biz.pdxtech.daap</groupId>
-			<artifactId>daap-api</artifactId>
-			<version>${pdxdaap.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>biz.pdxtech.daap</groupId>
-			<artifactId>daap-ethereumj-core</artifactId>
-			<version>${pdxdaap.version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jsr305</artifactId>
-					<groupId>com.google.code.findbugs</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-multipart</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-json-jackson</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${javax.servlet-api.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.ext</groupId>
 			<artifactId>jersey-spring3</artifactId>
@@ -121,11 +75,6 @@
 			<version>${jersey.sun.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.verson}</version>
-		</dependency>
-		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
 			<version>2.2.3</version>
@@ -137,22 +86,26 @@
 			<version>1.5.3.RELEASE</version>
 		</dependency>
 
-		<dependency>
-			<groupId>biz.pdxtech.daap</groupId>
-			<artifactId>daap-bcdriver</artifactId>
-			<version>${pdxdaap.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>biz.pdxtech.daap</groupId>
-			<artifactId>daap-ethbcdriver</artifactId>
-			<version>${pdxdaap.version}</version>
-			<scope>test</scope>
-		</dependency>
-
 	</dependencies>
 
 	<build>
 		<finalName>baap-contract-db</finalName>
+		<!-- 
+		 -->
+		<plugins>
+		    <plugin>  
+                <artifactId>maven-assembly-plugin</artifactId>  
+                <configuration>  
+                    <archive>  
+                        <manifest>  
+                            <mainClass>life.pdx.dapp.sample.db.DaapCaller</mainClass>  
+                        </manifest>  
+                    </archive>  
+                    <descriptorRefs>  
+                        <descriptorRef>jar-with-dependencies</descriptorRef>  
+                    </descriptorRefs>  
+                </configuration>  
+            </plugin>
+		</plugins>
 	</build>
 </project>

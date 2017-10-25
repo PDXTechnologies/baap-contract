@@ -2,8 +2,6 @@
 		baap-contract-simple: 简单合约示例
 		baap-contract-db：复杂合约示例
 		baap-contract-oobm：oobm示例
-		baap-contract-state：state示例
-		baap-contract-ledger：账本示例
 
 
 
@@ -19,49 +17,41 @@
 #### 配置PDX BlockChain Driver API  依赖
 		<!-- bcdriver api -->
 		<dependency>
-			<groupId>biz.pdxtech.daap</groupId>
-			<artifactId>daap-bcdriver</artifactId>
-			<version>1.2.5</version>
+			<groupId>biz.pdxtech.baap</groupId>
+			<artifactId>baap-api</artifactId>
+			<version>2.1.0</version>
 		</dependency>
-
-#### 配置Default Ethereum BlockChain Driver实现  依赖
-		<!-- Default Ethereum BlockChain Driver -->
 		<dependency>
-			<groupId>biz.pdxtech.daap</groupId>
-			<artifactId>daap-ethbcdriver</artifactId>
-			<version>1.2.5</version>
+			<groupId>biz.pdxtech.baap</groupId>
+			<artifactId>baap-driver-ethereum</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>biz.pdxtech.baap</groupId>
+			<artifactId>baap-setting</artifactId>
+			<version>2.1.0</version>
 		</dependency>
 
-### 2. BcDriver实例
 
-**实例化BcDriver**
+### 2. BcDriver实例化
 
-调用BcDriver首先需要实例化Driver.主要是两个参数。一个是协议栈类型；另一个是用户私钥。缺省情况下，协议栈类型为ethereum, 私钥会由BcDriver自动生成。调用者也可以通
-过如下两个方法之一自己进行参数设置。
+	调用BcDriver首先需要实例化Driver.主要是四个参数。1：协议栈类型；2：区块链id；3：区块链节点的baap-url；4：用户私钥。缺省情况下，协议栈类型为 ethereum。调用者可以通 过如下方法进行参数设置。 
 
-
-#### 2.1通过环境变量实例化
-
-	BlockChainDriver driver = BlockChainDriverFactory.get();
-		PDX_DAAP_CHAIN_TYPE		// 协议栈类型，默认 ethereum (以太坊）
-		PDX_DAAP_PRIVATEKEY		//【可选】ECC私钥，HEX格式
-
-
-#### 2.2通过property配置实例化
-
-	BlockChainDriver driver = BlockChainDriverFactory.get(property);
-	#blockchain Type
-	type=ethereum
-	#privateKey
-	privateKey=********************************************
+#### 通过property配置实例化
+		Properties properties = new Properties();
+		properties.setProperty("baap-chain-type", Constants.BAAP_CHAIN_TYPE_ETHEREUM);
+		properties.setProperty("baap-chain-id", Constants.BAAP_CHAIN_ID_DEFAULT);
+		properties.setProperty("baap-url", "http://10.0.0.7:8080/");
+		properties.setProperty("baap-private-key", PRIVATE_KEY);
+		BlockChainDriver driver = BlockChainDriverFactory.get(properties);
 
 
-###	3.BcDriver调用
+### 3. BcDriver调用
 
 	通过BcDriver以下方法调用链上或者远端合约：
 			query
 			apply
-	参见DaapCaller 例子
+	参见BaapCaller 例子
 			通过设置Transaction 中属性指定contract 地址和自定义逻辑等
 			dst  -->合约地址
 			meta -->元数据，可查询

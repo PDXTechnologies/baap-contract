@@ -10,8 +10,18 @@
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>life.pdx.dapp.sample.db.conf.SpringConfiguration</param-value>
+		<param-value>life.pdx.bapp.sample.db.conf.SpringConfiguration</param-value>
 	</context-param>
+
+	<filter>
+		<filter-name>oobmFilter</filter-name>
+		<filter-class>biz.pdxtech.baap.setting.filter.BaapFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>oobmFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<listener>
 	    <listener-class>
 			org.springframework.web.context.ContextLoaderListener

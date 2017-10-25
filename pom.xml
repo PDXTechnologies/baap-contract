@@ -13,9 +13,57 @@
 		<jdk.version>1.8</jdk.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<jersey.version>2.22.2</jersey.version>
+		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+		<logback.verson>1.1.5</logback.verson>
+		<baap-sdk.version>2.1.0</baap-sdk.version>
 	</properties>
 
 	<dependencies>
+		<!-- baap api -->
+		<dependency>
+			<groupId>biz.pdxtech.baap</groupId>
+			<artifactId>baap-api</artifactId>
+			<version>${baap-sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>biz.pdxtech.baap</groupId>
+			<artifactId>baap-driver-ethereum</artifactId>
+			<version>${baap-sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>biz.pdxtech.baap</groupId>
+			<artifactId>baap-setting</artifactId>
+			<version>${baap-sdk.version}</version>
+		</dependency>
+		<!-- jersey -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+		</dependency>
+		<!-- logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.verson}</version>
+		</dependency>
 
 	</dependencies>
 	<repositories>
@@ -30,7 +78,5 @@
 		<module>baap-contract-simple</module>
 		<module>baap-contract-db</module>
 		<module>baap-contract-oobm</module>
-		<module>baap-contract-state</module>
-		<module>baap-contract-ledger</module>
 	</modules>
 </project>
