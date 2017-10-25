@@ -35,7 +35,8 @@
 
 ### 2. BcDriver实例化
 
-	调用BcDriver首先需要实例化Driver.主要是四个参数。1：协议栈类型；2：区块链id；3：区块链节点的baap-url；4：用户私钥。缺省情况下，协议栈类型为 ethereum。调用者可以通 过如下方法进行参数设置。 
+	调用BcDriver首先需要实例化Driver.主要是四个参数。1：协议栈类型；2：区块链id；3：区块链节点的baap-url；4：用户私钥。
+	缺省情况下，协议栈类型为 ethereum。调用者可以通 过如下方法进行参数设置。 
 
 #### 通过property配置实例化
 		Properties properties = new Properties();
@@ -49,10 +50,10 @@
 ### 3. BcDriver调用
 
 	通过BcDriver以下方法调用链上或者远端合约：
-			query
-			apply
+		query
+		apply
 	参见BaapCaller 例子
-			通过设置Transaction 中属性指定contract 地址和自定义逻辑等
-			dst  -->合约地址
-			meta -->元数据，可查询
-			body -->自定义数据结构
+		通过设置Transaction 中属性指定contract 地址和自定义逻辑等
+		dst  -->合约地址
+		meta -->元数据，可查询
+		body -->自定义数据结构
