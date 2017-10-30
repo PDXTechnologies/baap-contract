@@ -41,7 +41,7 @@ import biz.pdxtech.baap.api.contract.IContract;
 import biz.pdxtech.baap.api.contract.Transaction;
 import biz.pdxtech.baap.api.contract.TransactionResp;
 
-@Path("/biz.pdxtech/sample/oobmtest")
+@Path("/pdx.bapp/sample/oobmtest")
 public class SampleContract implements IContract {
 
 	private Logger logger = LoggerFactory.getLogger(SampleContract.class);

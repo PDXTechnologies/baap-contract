@@ -20,7 +20,7 @@ import biz.pdxtech.baap.driver.BlockChainDriverFactory;
 
 public class BaapCaller {
 
-	private static String DST = "contract://default_pdx_chain/45874a3c0afc2a4d6cc9dea20245350f2981d3ea/biz.pdxtech/sample/oobmtest";
+	private static String DST = "contract://default_pdx_chain/45874a3c0afc2a4d6cc9dea20245350f2981d3ea/pdx.bapp/sample/oobmtest";
 	private static final String HOST = "10.0.0.7";
 	private static final String PRIVATE_KEY = "137f9a8fa4fac8ad5b3752cc056eb0f733e5090271d61941a22f790833af4be9";
 
@@ -39,7 +39,7 @@ public class BaapCaller {
 		BlockChainDriver driver = BlockChainDriverFactory.get(properties);
 		if (args != null && args.length>1) {
 			String addr = args[1];
-			DST = "contract://default_pdx_chain/"+addr+"/pdx.pdxtech/sample/oobmtest";
+			DST = "contract://default_pdx_chain/"+addr+"/pdx.bapp/sample/oobmtest";
 		}
 
 		String filePath = null;

@@ -51,7 +51,7 @@ import life.pdx.bapp.sample.db.repository.DBTxMetaRepository;
 import life.pdx.bapp.sample.db.util.DBUtil;
 import life.pdx.bapp.sample.db.util.JacksonUtils;
 
-@Path("/pdx.dapp/sample/db")
+@Path("/pdx.bapp/sample/db")
 public class DBContract implements IContract {
 
 	private Logger log = LoggerFactory.getLogger(DBContract.class);

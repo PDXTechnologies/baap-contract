@@ -20,7 +20,7 @@ import biz.pdxtech.baap.driver.BlockChainDriverFactory;
 
 public class BaapCaller {
 
-	private static String DST = "contract://default_pdx_chain/45874a3c0afc2a4d6cc9dea20245350f2981d3ea/pdx.dapp/sample/simple";
+	private static String DST = "contract://default_pdx_chain/45874a3c0afc2a4d6cc9dea20245350f2981d3ea/pdx.bapp/sample/simple";
 	private static final String HOST = "10.0.0.7";
 	private static final String PRIVATE_KEY = "137f9a8fa4fac8ad5b3752cc056eb0f733e5090271d61941a22f790833af4be9";
 
@@ -43,7 +43,7 @@ public class BaapCaller {
 		}
 		if (args != null && args.length>2) {
 			String addr = args[2];
-			DST = "contract://default_pdx_chain/"+addr+"/pdx.dapp/sample/simple";
+			DST = "contract://default_pdx_chain/"+addr+"/pdx.bapp/sample/simple";
 		}
 		
 		for (int i = 0 ; i < len ; i++) {		
@@ -69,7 +69,7 @@ public class BaapCaller {
 		Map<String, byte[]> meta = new HashMap<>();
 		meta.put("something", "test".getBytes());
 		tx.putMeta(meta);
-		tx.setBody("apply".getBytes());
+		tx.setBody("apply 测试".getBytes());
 		try {
 			tx.setDst(new URI(DST));
 		} catch (URISyntaxException e) {

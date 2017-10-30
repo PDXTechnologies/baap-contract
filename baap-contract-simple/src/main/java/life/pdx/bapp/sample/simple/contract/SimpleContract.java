@@ -44,7 +44,7 @@ import biz.pdxtech.baap.api.contract.IContract;
 import biz.pdxtech.baap.api.contract.Transaction;
 import biz.pdxtech.baap.api.contract.TransactionResp;
 
-@Path("/pdx.dapp/sample/simple")
+@Path("/pdx.bapp/sample/simple")
 public class SimpleContract implements IContract {
     
     private Logger log = LoggerFactory.getLogger(SimpleContract.class);
