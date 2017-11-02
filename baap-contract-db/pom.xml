@@ -98,7 +98,7 @@
                 <configuration>  
                     <archive>  
                         <manifest>  
-                            <mainClass>life.pdx.dapp.sample.db.DaapCaller</mainClass>  
+                            <mainClass>life.pdx.bapp.sample.db.caller.BaapCaller</mainClass>  
                         </manifest>  
                     </archive>  
                     <descriptorRefs>  

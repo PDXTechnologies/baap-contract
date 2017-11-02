@@ -28,13 +28,14 @@
 	<build>
 		<finalName>baap-contract-simple</finalName>
 		<!-- 
+		 -->
 		<plugins>
 		    <plugin>  
                 <artifactId>maven-assembly-plugin</artifactId>  
                 <configuration>  
                     <archive>  
                         <manifest>  
-                            <mainClass>life.pdx.daap.sample.simple.DaapCaller</mainClass>  
+                            <mainClass>life.pdx.bapp.sample.simple.caller.BaapCaller</mainClass>  
                         </manifest>  
                     </archive>  
                     <descriptorRefs>  
@@ -43,6 +44,5 @@
                 </configuration>  
             </plugin>
 		</plugins>
-		 -->
 	</build>
 </project>
