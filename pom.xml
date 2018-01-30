@@ -17,6 +17,7 @@
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 		<logback.verson>1.1.5</logback.verson>
 		<baap-sdk.version>2.1.0</baap-sdk.version>
+		<jackson.version>2.8.8</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -63,6 +64,11 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.verson}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 
 	</dependencies>
