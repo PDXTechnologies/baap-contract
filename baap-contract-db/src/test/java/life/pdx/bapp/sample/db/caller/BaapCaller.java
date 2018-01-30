@@ -22,27 +22,35 @@ import life.pdx.bapp.sample.db.util.JacksonUtils;
 
 public class BaapCaller {
 	private static String DST = "contract://default_pdx_chain/45874a3c0afc2a4d6cc9dea20245350f2981d3ea/pdx.bapp/sample/db";
-	private static final String HOST = "10.0.0.7";
+	//配置节点地址
+	private static final String HOST = "121.41.28.145";
+	//配置chainid
+	private static final String CHAINID = "javabc";
 	private static final String PRIVATE_KEY = "137f9a8fa4fac8ad5b3752cc056eb0f733e5090271d61941a22f790833af4be9";
+	//配置部署合约的用户地址
+	private static final String ADDR = "45874a3c0afc2a4d6cc9dea20245350f2981d3ea";
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("Usage: java -jar xxx.jar [host] [useraddress]");
+		System.out.println("Usage: java -jar xxx.jar [host] [chainid] [useraddress]");
 		Properties properties = new Properties();
+		properties.setProperty("baap-private-key", PRIVATE_KEY);
 		properties.setProperty("baap-chain-type", Constants.BAAP_CHAIN_TYPE_ETHEREUM);
-		properties.setProperty("baap-chain-id", Constants.BAAP_CHAIN_ID_DEFAULT);
+		String host = HOST;
+		String chainid = CHAINID;
+		String addr = ADDR;
 		if (args != null && args.length>0) {
-			properties.setProperty("baap-url", "http://" + args[0] + ":8080/");
-		}
-		else {
-			properties.setProperty("baap-url", "http://" + HOST + ":8080/");
+			host = args[0];
 		}
 		if (args != null && args.length>1) {
-			String addr = args[1];
-			DST = "contract://default_pdx_chain/"+addr+"/pdx.bapp/sample/db";
+			chainid = args[1];
 		}
-
-		properties.setProperty("baap-private-key", PRIVATE_KEY);
+		properties.setProperty("baap-url", "http://" + host + ":8080/");
+		properties.setProperty("baap-chain-id", chainid);
 		BlockChainDriver driver = BlockChainDriverFactory.get(properties);
+		if (args != null && args.length>2) {
+			addr = args[2];
+		}
+		DST = "contract://"+chainid+"/"+addr+"/pdx.bapp/sample/db";
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time = df.format(new Date());
 		System.out.println(time);

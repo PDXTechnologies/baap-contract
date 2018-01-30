@@ -21,34 +21,46 @@ import biz.pdxtech.baap.driver.BlockChainDriverFactory;
 public class BaapCaller {
 
 	private static String DST = "contract://default_pdx_chain/45874a3c0afc2a4d6cc9dea20245350f2981d3ea/pdx.bapp/sample/simple";
-	private static final String HOST = "10.0.0.7";
+//	private static final String HOST = "121.41.28.145";
+	private static final String CHAINID = "javabc";
+	private static final String ADDR = "45874a3c0afc2a4d6cc9dea20245350f2981d3ea";
+	private static final String HOST = "139.198.11.112";
 	private static final String PRIVATE_KEY = "137f9a8fa4fac8ad5b3752cc056eb0f733e5090271d61941a22f790833af4be9";
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("Usage: java -jar xxx.jar [host] [times] [useraddress]");
+		System.out.println("Usage: java -jar xxx.jar [host] [chainid] [useraddress] [times] [interval]");
 		Properties properties = new Properties();
-		properties.setProperty("baap-chain-type", Constants.BAAP_CHAIN_TYPE_ETHEREUM);
-		properties.setProperty("baap-chain-id", Constants.BAAP_CHAIN_ID_DEFAULT);
-		if (args != null && args.length>0) {
-			properties.setProperty("baap-url", "http://" + args[0] + ":8080/");
-		}
-		else{
-			properties.setProperty("baap-url", "http://" + HOST + ":8080/");
-		}
 		properties.setProperty("baap-private-key", PRIVATE_KEY);
-		BlockChainDriver driver = BlockChainDriverFactory.get(properties);
-		int len = 1;
-		if (args != null && args.length>1) {
-			len = Integer.parseInt(args[1]);
-		}
-		if (args != null && args.length>2) {
-			String addr = args[2];
-			DST = "contract://default_pdx_chain/"+addr+"/pdx.bapp/sample/simple";
-		}
+		properties.setProperty("baap-chain-type", Constants.BAAP_CHAIN_TYPE_ETHEREUM);
+		String host = HOST;
 		
+		String chainid = CHAINID;
+		String addr = ADDR;
+		if (args != null && args.length>0) {
+			host = args[0];
+		}
+		if (args != null && args.length>1) {
+			chainid = args[1];
+		}
+		properties.setProperty("baap-url", "http://" + host + ":8080/");
+		properties.setProperty("baap-chain-id", chainid);
+		BlockChainDriver driver = BlockChainDriverFactory.get(properties);
+		if (args != null && args.length>2) {
+			addr = args[2];
+		}
+		DST = "contract://"+chainid+"/"+addr+"/pdx.bapp/sample/simple";
+		System.out.println("DST:"+DST);
+		int len = 1;
+		if (args != null && args.length>3) {
+			len = Integer.parseInt(args[3]);
+		}
+		int interval =  100;
+		if (args != null && args.length>4) {
+			interval = Integer.parseInt(args[4]);
+		}
 		for (int i = 0 ; i < len ; i++) {		
 			apply(driver);
-			Thread.sleep(2000);
+			Thread.sleep(interval);
 			query(driver);
 		}
 	}

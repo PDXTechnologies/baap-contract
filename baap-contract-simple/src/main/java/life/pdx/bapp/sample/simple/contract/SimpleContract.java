@@ -72,24 +72,6 @@ public class SimpleContract implements IContract {
         
         resp.putState("a", "a".getBytes()).putState("b", "b".getBytes()).putState("c", "c".getBytes());
         
-//        resp.addNotif(TransactionResp.Notif.of("a", new byte[1], ctx.txid()))
-//                .addNotif(TransactionResp.Notif.of("b", new byte[1], ctx.txid()));
-//        
-//        resp.getNotify().forEach(a -> {
-//            System.out.println(a.getPbk());
-//            System.out.println(new String(a.getData()));
-//            System.out.println(a.getTxid());
-//        });
-        
-        if (ctx.stream() != null) {
-            ctx.stream().forEach((k, v) -> {
-                try {
-                	log.info("key: {}, value: {}" , k, IOUtils.toString(v, "utf-8"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
 		log.info("SimpleContract exec end...");
         return resp;
     }
